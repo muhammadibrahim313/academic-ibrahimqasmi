@@ -68,25 +68,17 @@
     return;
   }
 
-  if (reducedMotion || !("IntersectionObserver" in window)) {
-    items.forEach((item) => item.classList.add("is-visible"));
+  // Make animation consistent on every page: reveal all marked blocks together.
+  const revealAll = () => {
+    items.forEach((item) => {
+      item.classList.add("is-visible");
+    });
+  };
+
+  if (reducedMotion) {
+    revealAll();
     return;
   }
 
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-  );
-
-  items.forEach((item, index) => {
-    item.style.transitionDelay = `${Math.min(index * 60, 300)}ms`;
-    observer.observe(item);
-  });
+  requestAnimationFrame(revealAll);
 })();

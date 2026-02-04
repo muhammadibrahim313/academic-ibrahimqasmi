@@ -1,0 +1,76 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/index",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/education.html",
+      "destination": "/education",
+      "permanent": true
+    },
+    {
+      "source": "/experience.html",
+      "destination": "/experience",
+      "permanent": true
+    },
+    {
+      "source": "/competitions.html",
+      "destination": "/competitions",
+      "permanent": true
+    },
+    {
+      "source": "/coding-competitions.html",
+      "destination": "/coding-competitions",
+      "permanent": true
+    },
+    {
+      "source": "/hackathons.html",
+      "destination": "/hackathons",
+      "permanent": true
+    },
+    {
+      "source": "/publications.html",
+      "destination": "/publications",
+      "permanent": true
+    },
+    {
+      "source": "/community-leadership.html",
+      "destination": "/community-leadership",
+      "permanent": true
+    },
+    {
+      "source": "/certifications.html",
+      "destination": "/publications",
+      "permanent": true
+    },
+    {
+      "source": "/local-competitions.html",
+      "destination": "/hackathons",
+      "permanent": true
+    },
+    {
+      "source": "/patents.html",
+      "destination": "/community-leadership",
+      "permanent": true
+    }
+  ]
+}
