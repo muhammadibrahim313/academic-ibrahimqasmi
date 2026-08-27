@@ -7,10 +7,11 @@ Replica-style academic portfolio inspired by Anil Ozturk's layout and customized
 - `index.html` - About
 - `education.html`
 - `experience.html`
+- `projects.html` - selected AI projects, project archive, and technical skills
 - `competitions.html` - Kaggle competitions
 - `coding-competitions.html`
 - `hackathons.html`
-- `publications.html`
+- `publications.html` - published papers, preprints, and research in progress
 - `community-leadership.html`
 - `assets/styles.css`
 - `assets/script.js`

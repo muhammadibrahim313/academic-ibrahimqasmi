@@ -476,6 +476,72 @@ a:hover {
   font-size: 0.9rem;
 }
 
+.section-heading {
+  margin: 30px 0 14px !important;
+  font-size: 1.55rem !important;
+}
+
+.project-grid,
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.project-card,
+.skill-card {
+  border: 1px solid #dfe4ec;
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px;
+  transition: transform 0.22s var(--ease-fluid), box-shadow 0.22s var(--ease-fluid);
+}
+
+.project-card:hover,
+.skill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow);
+}
+
+.project-card h2,
+.skill-card h2 {
+  margin: 10px 0 8px;
+  font-size: 1.15rem;
+}
+
+.project-card p,
+.skill-card p {
+  margin: 0;
+  color: #5f6672;
+  line-height: 1.58;
+  font-size: 0.86rem;
+}
+
+.project-badge {
+  display: inline-flex;
+  border-radius: 999px;
+  background: #e8f4fb;
+  color: #176f9d;
+  padding: 4px 9px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.project-table {
+  margin-bottom: 6px;
+}
+
 .profile-link {
   margin-top: 18px;
 }
@@ -596,6 +662,11 @@ a:hover {
   .about-bottom {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .project-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 
 }
