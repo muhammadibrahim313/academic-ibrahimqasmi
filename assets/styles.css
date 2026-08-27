@@ -21,6 +21,18 @@
   --tertiary: #ad570f;
   --tertiary-soft: #fff4e7;
   --tertiary-border: #e7bd8c;
+  --medal-gold-text: #95600b;
+  --medal-gold-soft: #fff7e6;
+  --medal-gold-border: #dfbd75;
+  --medal-silver-text: #596675;
+  --medal-silver-soft: #f2f5f8;
+  --medal-silver-border: #b9c2cc;
+  --medal-bronze-text: #8e4a25;
+  --medal-bronze-soft: #fff2ea;
+  --medal-bronze-border: #d7a07e;
+  --result-text: #176f9d;
+  --result-soft: #e8f4fb;
+  --result-border: #9bc9df;
   --control-bg: #ffffff;
   --control-text: #4e5562;
   --logo-bg: #ffffff;
@@ -67,6 +79,18 @@
   --tertiary: #e39a45;
   --tertiary-soft: #2b2117;
   --tertiary-border: #795226;
+  --medal-gold-text: #f2bf62;
+  --medal-gold-soft: #2b2417;
+  --medal-gold-border: #6f592c;
+  --medal-silver-text: #d1d7df;
+  --medal-silver-soft: #202833;
+  --medal-silver-border: #566273;
+  --medal-bronze-text: #e2a17a;
+  --medal-bronze-soft: #2b201a;
+  --medal-bronze-border: #704d39;
+  --result-text: #85cff2;
+  --result-soft: #102d3d;
+  --result-border: #356b85;
   --control-bg: #141d28;
   --control-text: #e2e8f0;
   --logo-bg: #ffffff;
@@ -741,6 +765,9 @@ button:focus-visible {
 }
 
 .competition-card {
+  --competition-accent: var(--result-text);
+  --competition-soft: var(--result-soft);
+  --competition-border: var(--result-border);
   display: flex;
   flex-direction: column;
   min-height: 184px;
@@ -754,8 +781,32 @@ button:focus-visible {
 
 .competition-card:hover {
   transform: translateY(-3px);
-  border-color: var(--tertiary-border);
+  border-color: var(--competition-border);
   box-shadow: var(--card-shadow);
+}
+
+.competition-card.medal-gold {
+  --competition-accent: var(--medal-gold-text);
+  --competition-soft: var(--medal-gold-soft);
+  --competition-border: var(--medal-gold-border);
+}
+
+.competition-card.medal-silver {
+  --competition-accent: var(--medal-silver-text);
+  --competition-soft: var(--medal-silver-soft);
+  --competition-border: var(--medal-silver-border);
+}
+
+.competition-card.medal-bronze {
+  --competition-accent: var(--medal-bronze-text);
+  --competition-soft: var(--medal-bronze-soft);
+  --competition-border: var(--medal-bronze-border);
+}
+
+.competition-card.result-percentile {
+  --competition-accent: var(--result-text);
+  --competition-soft: var(--result-soft);
+  --competition-border: var(--result-border);
 }
 
 .competition-card-top {
@@ -771,10 +822,10 @@ button:focus-visible {
   align-items: center;
   min-height: 28px;
   padding: 5px 9px;
-  border: 1px solid var(--tertiary-border);
+  border: 1px solid var(--competition-border);
   border-radius: 999px;
-  color: var(--tertiary);
-  background: var(--tertiary-soft);
+  color: var(--competition-accent);
+  background: var(--competition-soft);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.04em;
