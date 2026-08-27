@@ -253,6 +253,10 @@ button:focus-visible {
   cursor: pointer;
 }
 
+.preference-select.language-select select {
+  width: 72px;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

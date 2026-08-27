@@ -2,10 +2,12 @@
   const root = document.documentElement;
   let savedTheme = null;
   let savedFont = null;
+  let savedLanguage = null;
 
   try {
     savedTheme = window.localStorage.getItem("portfolio-theme");
     savedFont = window.localStorage.getItem("portfolio-font");
+    savedLanguage = window.localStorage.getItem("portfolio-language");
   } catch {
     // Storage can be unavailable in privacy-restricted browsing contexts.
   }
@@ -17,5 +19,9 @@
   root.dataset.font = ["manrope", "inter", "source", "lora"].includes(savedFont)
     ? savedFont
     : "manrope";
+  root.dataset.language = ["en", "es", "ko", "ur"].includes(savedLanguage)
+    ? savedLanguage
+    : "en";
+  root.lang = root.dataset.language;
   root.style.colorScheme = theme;
 })();
