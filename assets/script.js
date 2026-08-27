@@ -3,15 +3,6 @@
   root.classList.add("js-enabled");
 
   const themeToggle = document.querySelector("[data-theme-toggle]");
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-  const getSavedTheme = () => {
-    try {
-      return window.localStorage.getItem("portfolio-theme");
-    } catch {
-      return null;
-    }
-  };
 
   const updateThemeControl = () => {
     if (!themeToggle) {
@@ -53,12 +44,6 @@
       applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
     });
   }
-
-  systemTheme.addEventListener("change", (event) => {
-    if (!getSavedTheme()) {
-      applyTheme(event.matches ? "dark" : "light");
-    }
-  });
 
   const sidebar = document.querySelector(".sidebar");
   const toggle = document.querySelector("[data-menu-toggle]");

@@ -1,6 +1,5 @@
 (() => {
   const root = document.documentElement;
-  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   let savedTheme = null;
 
   try {
@@ -9,9 +8,8 @@
     // Storage can be unavailable in privacy-restricted browsing contexts.
   }
 
-  const theme = savedTheme === "light" || savedTheme === "dark"
-    ? savedTheme
-    : systemPrefersDark ? "dark" : "light";
+  // Light is the portfolio's default. A visitor can still choose and retain dark mode.
+  const theme = savedTheme === "dark" ? "dark" : "light";
 
   root.dataset.theme = theme;
   root.style.colorScheme = theme;
