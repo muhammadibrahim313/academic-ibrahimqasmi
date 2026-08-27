@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/styles.css?v=20260827-logos" />
+  <script src="assets/theme.js?v=20260828-layout"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=20260828-layout" />
 </head>
 <body>
   <div class="ambient-glow" aria-hidden="true"></div>
@@ -20,9 +21,15 @@
         Menu
       </button>
 
-      <div class="sidebar-brand" data-reveal>
-        <a href="/about">Ibrahim Qasmi</a>
-        <p>Academic Portfolio</p>
+      <div class="sidebar-brand-row" data-reveal>
+        <div class="sidebar-brand">
+          <a href="/about">Ibrahim Qasmi</a>
+          <p>Academic Portfolio</p>
+        </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Switch to dark theme">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+          <span data-theme-label>Dark</span>
+        </button>
       </div>
 
       <nav aria-label="Primary" data-reveal>
@@ -42,7 +49,7 @@
 
       <a class="sidebar-cv" href="assets/My_CV.pdf" target="_blank" rel="noopener" data-reveal>
         <i class="fa-solid fa-file-arrow-down"></i>
-        CV
+        Download CV
       </a>
     </aside>
 
@@ -65,15 +72,14 @@
             <a href="https://lablab.ai/u/@qasmi92" target="_blank" rel="noopener" aria-label="LabLab"><img src="assets/social/lablab.png" alt="" aria-hidden="true" /></a>
             <a href="https://topmate.io/ibrahim_qasmi" target="_blank" rel="noopener" aria-label="Topmate"><img src="assets/social/topmate.svg" alt="" aria-hidden="true" /></a>
           </div>
+          <a class="cv-button" href="assets/My_CV.pdf" target="_blank" rel="noopener">Download CV</a>
         </div>
-
-        <a class="cv-button" href="assets/My_CV.pdf" target="_blank" rel="noopener" data-reveal>Download CV</a>
 
         <div class="mini-divider" data-reveal></div>
 
         <div class="about-bottom" data-reveal>
           <div class="text-block">
-            <p>I am Muhammad Ibrahim Qasmi, a Data Scientist and AI Engineer focused on building practical machine learning systems. At 19, I became Pakistan's youngest and first-ever 3x Kaggle Grandmaster across Notebooks, Discussions, and Datasets, reaching the #1 global rank.</p>
+            <p>I am <strong class="bio-name">Muhammad Ibrahim Qasmi</strong>, a Data Scientist and AI Engineer focused on building practical machine learning systems. <strong class="bio-milestone">At 19</strong>, I became Pakistan's youngest and first-ever 3x Kaggle Grandmaster across Notebooks, Discussions, and Datasets, reaching the #1 global rank.</p>
             <p>I work across the full AI stack, from classical machine learning and deep learning to computer vision, RAG systems, LLM applications, and agentic AI. I am currently a full-time Data Scientist at BluWhale, a US-based startup, and have built 100+ AI projects across healthcare, education, legal technology, space exploration, and data products.</p>
             <p>I have competed in 50+ hackathons, earned seven international wins and finalist placements, and mentor aspiring data scientists through Topmate, workshops, webinars, and community programs.</p>
           </div>
@@ -84,6 +90,7 @@
             <div class="stat-item"><strong>Top 0.1%</strong><span>Topmate Mentor</span></div>
             <div class="stat-item"><strong>100+</strong><span>AI Projects</span></div>
             <div class="stat-item"><strong>500+</strong><span>Mentorship Hours</span></div>
+            <div class="stat-item"><strong>#1</strong><span>Global Kaggle Rank</span></div>
           </div>
         </div>
       </section>
@@ -91,6 +98,6 @@
     </main>
   </div>
 
-  <script src="assets/script.js"></script>
+  <script src="assets/script.js?v=20260828-layout"></script>
 </body>
 </html>

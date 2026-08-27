@@ -2,6 +2,64 @@
   const root = document.documentElement;
   root.classList.add("js-enabled");
 
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const getSavedTheme = () => {
+    try {
+      return window.localStorage.getItem("portfolio-theme");
+    } catch {
+      return null;
+    }
+  };
+
+  const updateThemeControl = () => {
+    if (!themeToggle) {
+      return;
+    }
+
+    const isDark = root.dataset.theme === "dark";
+    const icon = themeToggle.querySelector("i");
+    const label = themeToggle.querySelector("[data-theme-label]");
+    themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+    themeToggle.title = isDark ? "Switch to light theme" : "Switch to dark theme";
+
+    if (icon) {
+      icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+    }
+    if (label) {
+      label.textContent = isDark ? "Light" : "Dark";
+    }
+  };
+
+  const applyTheme = (theme, persist = false) => {
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+
+    if (persist) {
+      try {
+        window.localStorage.setItem("portfolio-theme", theme);
+      } catch {
+        // The selected theme still applies for the current page.
+      }
+    }
+
+    updateThemeControl();
+  };
+
+  if (themeToggle) {
+    updateThemeControl();
+    themeToggle.addEventListener("click", () => {
+      applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+    });
+  }
+
+  systemTheme.addEventListener("change", (event) => {
+    if (!getSavedTheme()) {
+      applyTheme(event.matches ? "dark" : "light");
+    }
+  });
+
   const sidebar = document.querySelector(".sidebar");
   const toggle = document.querySelector("[data-menu-toggle]");
 

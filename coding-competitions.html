@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/styles.css?v=20260827" />
+  <script src="assets/theme.js?v=20260828-layout"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=20260828-layout" />
 </head>
 <body>
   <div class="ambient-glow" aria-hidden="true"></div>
@@ -20,9 +21,15 @@
         Menu
       </button>
 
-      <div class="sidebar-brand" data-reveal>
-        <a href="/about">Ibrahim Qasmi</a>
-        <p>Academic Portfolio</p>
+      <div class="sidebar-brand-row" data-reveal>
+        <div class="sidebar-brand">
+          <a href="/about">Ibrahim Qasmi</a>
+          <p>Academic Portfolio</p>
+        </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Switch to dark theme">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+          <span data-theme-label>Dark</span>
+        </button>
       </div>
 
       <nav aria-label="Primary" data-reveal>
@@ -42,7 +49,7 @@
 
       <a class="sidebar-cv" href="assets/My_CV.pdf" target="_blank" rel="noopener" data-reveal>
         <i class="fa-solid fa-file-arrow-down"></i>
-        CV
+        Download CV
       </a>
     </aside>
 
@@ -84,6 +91,6 @@
     </main>
   </div>
 
-  <script src="assets/script.js"></script>
+  <script src="assets/script.js?v=20260828-layout"></script>
 </body>
 </html>
