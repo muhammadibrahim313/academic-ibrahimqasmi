@@ -3,6 +3,7 @@
   root.classList.add("js-enabled");
 
   const themeToggle = document.querySelector("[data-theme-toggle]");
+  const fontSelect = document.querySelector("[data-font-select]");
 
   const updateThemeControl = () => {
     if (!themeToggle) {
@@ -42,6 +43,32 @@
     updateThemeControl();
     themeToggle.addEventListener("click", () => {
       applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+    });
+  }
+
+  const applyFont = (font, persist = false) => {
+    const selectedFont = ["manrope", "inter", "source", "lora"].includes(font)
+      ? font
+      : "manrope";
+    root.dataset.font = selectedFont;
+
+    if (fontSelect) {
+      fontSelect.value = selectedFont;
+    }
+
+    if (persist) {
+      try {
+        window.localStorage.setItem("portfolio-font", selectedFont);
+      } catch {
+        // The selected font still applies for the current page.
+      }
+    }
+  };
+
+  if (fontSelect) {
+    applyFont(root.dataset.font);
+    fontSelect.addEventListener("change", (event) => {
+      applyFont(event.target.value, true);
     });
   }
 

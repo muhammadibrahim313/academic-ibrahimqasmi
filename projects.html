@@ -7,7 +7,7 @@
   <meta name="description" content="Selected AI projects and technical skills of Muhammad Ibrahim Qasmi." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;family=Lora:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
   <script src="assets/theme.js?v=20260828-navigation"></script>
   <link rel="stylesheet" href="assets/styles.css?v=20260828-navigation" />
@@ -26,10 +26,10 @@
           <a href="/about">Ibrahim Qasmi</a>
           <p>Academic Portfolio</p>
         </div>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Switch to dark theme">
-          <i class="fa-solid fa-moon" aria-hidden="true"></i>
-          <span data-theme-label>Dark</span>
-        </button>
+        <div class="site-controls" aria-label="Display preferences">
+          <label class="preference-select"><span class="visually-hidden">Choose font</span><i class="fa-solid fa-font" aria-hidden="true"></i><select data-font-select aria-label="Choose font"><option value="manrope">Manrope</option><option value="inter">Inter</option><option value="source">Source</option><option value="lora">Lora</option></select></label>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Switch to dark theme"><i class="fa-solid fa-moon" aria-hidden="true"></i><span data-theme-label>Dark</span></button>
+        </div>
       </div>
 
       <nav aria-label="Primary" data-reveal>
