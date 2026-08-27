@@ -9,10 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <script src="assets/theme.js?v=20260828-layout"></script>
-  <link rel="stylesheet" href="assets/styles.css?v=20260828-layout" />
+  <script src="assets/theme.js?v=20260828-navigation"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=20260828-navigation" />
 </head>
-<body>
+<body class="page-progress-5">
   <div class="ambient-glow" aria-hidden="true"></div>
   <div class="site-shell">
     <aside class="sidebar">
@@ -56,77 +56,78 @@
     <main class="content" id="main-content">
       <section class="page-section">
         <h1 class="page-title" data-reveal>Kaggle Competitions</h1>
-        <div class="section-divider" data-reveal></div>
+        <div class="section-divider" data-reveal><span aria-hidden="true"></span></div>
 
-        <p class="intro-note" data-reveal>As a 3x Kaggle Grandmaster who has reached the #1 global rank, I compete across NLP, computer vision, biomedical imaging, neural architecture design, and applied machine learning.</p>
+        <p class="intro-note" data-reveal>As a 3x Kaggle Grandmaster who has reached the <strong class="rank-one">#1</strong> global rank, I compete across NLP, computer vision, biomedical imaging, neural architecture design, and applied machine learning.</p>
 
-        <div data-reveal>
-          <table class="comp-table">
-            <thead>
-              <tr>
-                <th>Challenge</th>
-                <th>Standing</th>
-                <th>Category</th>
-                <th>Year</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Social Media Extremism Detection Challenge</td>
-                <td>1st / 164 teams</td>
-                <td>Gold Medal</td>
-                <td>2025</td>
-              </tr>
-              <tr>
-                <td>The 2026 NeuroGolf Championship</td>
-                <td>26th / 2,963 teams</td>
-                <td>Silver Medal</td>
-                <td>2026</td>
-              </tr>
-              <tr>
-                <td>CSIRO - Image2Biomass Prediction</td>
-                <td>35th / 3,805 teams</td>
-                <td>Silver Medal</td>
-                <td>2025</td>
-              </tr>
-              <tr>
-                <td>Recod.ai/LUC - Scientific Image Forgery Detection</td>
-                <td>65th / 1,564 teams</td>
-                <td>Silver Medal</td>
-                <td>2025-26</td>
-              </tr>
-              <tr>
-                <td>The Deep Past Challenge</td>
-                <td>80th / 2,674 teams</td>
-                <td>Silver Medal</td>
-                <td>2025-26</td>
-              </tr>
-              <tr>
-                <td>PhysioNet - Digitization of ECG Images</td>
-                <td>137th / 1,424 teams</td>
-                <td>Bronze Medal</td>
-                <td>2025</td>
-              </tr>
-              <tr>
-                <td>Predicting Loan Payback</td>
-                <td>20th / 3700+ teams</td>
-                <td>Top 1%</td>
-                <td>2025</td>
-              </tr>
-              <tr>
-                <td>Predicting Road Accident Risk</td>
-                <td>60th / 300+ teams</td>
-                <td>Top 20%</td>
-                <td>2025</td>
-              </tr>
-              <tr>
-                <td>Brain-to-Text 2025</td>
-                <td>70th / 450 teams</td>
-                <td>Top 15%</td>
-                <td>2025</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="competition-grid" data-reveal>
+          <article class="competition-card">
+            <div class="competition-card-top"><span class="competition-result">Gold Medal</span><span class="competition-year">2025</span></div>
+            <h2><a href="https://www.kaggle.com/ibrahimqasimi/competitions" target="_blank" rel="noopener">Social Media Extremism Detection Challenge</a></h2>
+            <p class="competition-standing"><strong>1st</strong><span>of 164 teams</span></p>
+            <div class="competition-actions">
+              <a class="competition-action" href="https://www.kaggle.com/ibrahimqasimi/competitions" target="_blank" rel="noopener">View result on Kaggle <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              <!-- Optional write-up link template:
+              <a class="competition-action" href="WRITE_UP_URL" target="_blank" rel="noopener">Read write-up <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              -->
+            </div>
+          </article>
+
+          <article class="competition-card">
+            <div class="competition-card-top"><span class="competition-result">Silver Medal</span><span class="competition-year">2026</span></div>
+            <h2><a href="https://www.kaggle.com/competitions/neurogolf-2026" target="_blank" rel="noopener">The 2026 NeuroGolf Championship</a></h2>
+            <p class="competition-standing"><strong>26th</strong><span>of 2,963 teams</span></p>
+            <div class="competition-actions"><a class="competition-action" href="https://www.kaggle.com/competitions/neurogolf-2026" target="_blank" rel="noopener">Open competition <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+          </article>
+
+          <article class="competition-card">
+            <div class="competition-card-top"><span class="competition-result">Silver Medal</span><span class="competition-year">2025</span></div>
+            <h2><a href="https://www.kaggle.com/competitions/csiro-biomass" target="_blank" rel="noopener">CSIRO - Image2Biomass Prediction</a></h2>
+            <p class="competition-standing"><strong>35th</strong><span>of 3,805 teams</span></p>
+            <div class="competition-actions"><a class="competition-action" href="https://www.kaggle.com/competitions/csiro-biomass" target="_blank" rel="noopener">Open competition <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+          </article>
+
+          <article class="competition-card">
+            <div class="competition-card-top"><span class="competition-result">Silver Medal</span><span class="competition-year">2025-26</span></div>
+            <h2><a href="https://www.kaggle.com/competitions/recodai-luc-scientific-image-forgery-detection" target="_blank" rel="noopener">Recod.ai/LUC - Scientific Image Forgery Detection</a></h2>
+            <p class="competition-standing"><strong>65th</strong><span>of 1,564 teams</span></p>
+            <div class="competition-actions"><a class="competition-action" href="https://www.kaggle.com/competitions/recodai-luc-scientific-image-forgery-detection" target="_blank" rel="noopener">Open competition <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+          </article>
+
+          <article class="competition-card">
+            <div class="competition-card-top"><span class="competition-result">Silver Medal</span><span class="competition-year">2025-26</span></div>
+            <h2><a href="https://www.kaggle.com/competitions/deep-past-initiative-machine-translation" target="_blank" rel="noopener">The Deep Past Challenge</a></h2>
+            <p class="competition-standing"><strong>80th</strong><span>of 2,674 teams</span></p>
+            <div class="competition-actions"><a class="competition-action" href="https://www.kaggle.com/competitions/deep-past-initiative-machine-translation" target="_blank" rel="noopener">Open competition <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+          </article>
+
+          <article class="competition-card">
+            <div class="competition-card-top"><span class="competition-result">Bronze Medal</span><span class="competition-year">2025</span></div>
+            <h2><a href="https://www.kaggle.com/competitions/physionet-ecg-image-digitization" target="_blank" rel="noopener">PhysioNet - Digitization of ECG Images</a></h2>
+            <p class="competition-standing"><strong>137th</strong><span>of 1,424 teams</span></p>
+            <div class="competition-actions"><a class="competition-action" href="https://www.kaggle.com/competitions/physionet-ecg-image-digitization" target="_blank" rel="noopener">Open competition <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+          </article>
+
+          <article class="competition-card">
+            <div class="competition-card-top"><span class="competition-result">Top 1%</span><span class="competition-year">2025</span></div>
+            <h2><a href="https://www.kaggle.com/competitions/playground-series-s5e11" target="_blank" rel="noopener">Predicting Loan Payback</a></h2>
+            <p class="competition-standing"><strong>20th</strong><span>of 3,700+ teams</span></p>
+            <div class="competition-actions"><a class="competition-action" href="https://www.kaggle.com/competitions/playground-series-s5e11" target="_blank" rel="noopener">Open competition <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+          </article>
+
+          <article class="competition-card">
+            <div class="competition-card-top"><span class="competition-result">Top 20%</span><span class="competition-year">2025</span></div>
+            <h2><a href="https://www.kaggle.com/competitions/playground-series-s5e10" target="_blank" rel="noopener">Predicting Road Accident Risk</a></h2>
+            <p class="competition-standing"><strong>60th</strong><span>of 300+ teams</span></p>
+            <div class="competition-actions"><a class="competition-action" href="https://www.kaggle.com/competitions/playground-series-s5e10" target="_blank" rel="noopener">Open competition <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+          </article>
+
+          <article class="competition-card">
+            <div class="competition-card-top"><span class="competition-result">Top 15%</span><span class="competition-year">2025</span></div>
+            <h2><a href="https://www.kaggle.com/competitions/brain-to-text-25" target="_blank" rel="noopener">Brain-to-Text 2025</a></h2>
+            <p class="competition-standing"><strong>70th</strong><span>of 450 teams</span></p>
+            <div class="competition-actions"><a class="competition-action" href="https://www.kaggle.com/competitions/brain-to-text-25" target="_blank" rel="noopener">Open competition <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+          </article>
         </div>
 
         <p class="profile-link" data-reveal><a href="https://www.kaggle.com/ibrahimqasimi/competitions" target="_blank" rel="noopener">View full Kaggle competitions profile</a></p>
@@ -135,6 +136,6 @@
     </main>
   </div>
 
-  <script src="assets/script.js?v=20260828-layout"></script>
+  <script src="assets/script.js?v=20260828-navigation"></script>
 </body>
 </html>

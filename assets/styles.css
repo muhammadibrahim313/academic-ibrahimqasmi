@@ -99,6 +99,7 @@ body,
 .entry-badge,
 .comp-table,
 .comp-table th,
+.competition-card,
 .achievement-card,
 .project-card,
 .skill-card {
@@ -331,10 +332,32 @@ button:focus-visible {
 }
 
 .section-divider {
-  height: 1px;
-  background: linear-gradient(90deg, var(--tertiary) 0 72px, var(--border-strong) 72px 100%);
+  height: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--border-strong);
   margin: 12px 0 18px;
 }
+
+.section-divider span {
+  display: block;
+  width: var(--page-progress, 11%);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--tertiary);
+  view-transition-name: page-progress-bar;
+  transition: width 0.38s var(--ease-fluid);
+}
+
+.page-progress-1 { --page-progress: 11%; }
+.page-progress-2 { --page-progress: 22%; }
+.page-progress-3 { --page-progress: 33%; }
+.page-progress-4 { --page-progress: 44%; }
+.page-progress-5 { --page-progress: 56%; }
+.page-progress-6 { --page-progress: 67%; }
+.page-progress-7 { --page-progress: 78%; }
+.page-progress-8 { --page-progress: 89%; }
+.page-progress-9 { --page-progress: 100%; }
 
 .mini-divider {
   width: 100%;
@@ -636,6 +659,108 @@ button:focus-visible {
   background: var(--surface-hover);
 }
 
+.competition-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.competition-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 184px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 5px 20px rgba(33, 47, 64, 0.04);
+  transition: transform 0.22s var(--ease-fluid), border-color 0.22s var(--ease-fluid), box-shadow 0.22s var(--ease-fluid), background-color 0.22s var(--ease-fluid);
+}
+
+.competition-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--tertiary-border);
+  box-shadow: var(--card-shadow);
+}
+
+.competition-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.competition-result {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border: 1px solid var(--tertiary-border);
+  border-radius: 999px;
+  color: var(--tertiary);
+  background: var(--tertiary-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.competition-year {
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.competition-card h2 {
+  margin: 0 0 8px;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.competition-card h2 a {
+  color: var(--heading);
+}
+
+.competition-card h2 a:hover {
+  color: var(--accent-dark);
+}
+
+.competition-standing {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 0 0 16px;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+}
+
+.competition-standing strong {
+  color: var(--heading);
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.competition-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.competition-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.competition-action i {
+  font-size: 0.72rem;
+}
+
 .achievement-list {
   display: grid;
   gap: 14px;
@@ -756,6 +881,34 @@ button:focus-visible {
   transform: translateY(0);
 }
 
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: page-fade-out 0.12s ease-out both;
+}
+
+::view-transition-new(root) {
+  animation: page-fade-in 0.22s var(--ease-fluid) both;
+}
+
+::view-transition-group(page-progress-bar) {
+  animation-duration: 0.38s;
+  animation-timing-function: var(--ease-fluid);
+}
+
+@keyframes page-fade-out {
+  to { opacity: 0.72; }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -769,6 +922,12 @@ button:focus-visible {
   .js-enabled [data-reveal] {
     opacity: 1;
     transform: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-group(page-progress-bar) {
+    animation: none !important;
   }
 
 }
@@ -864,10 +1023,8 @@ button:focus-visible {
     margin-bottom: 22px;
   }
 
-  .comp-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+  .competition-grid {
+    grid-template-columns: 1fr;
   }
 
   .cv-button {
