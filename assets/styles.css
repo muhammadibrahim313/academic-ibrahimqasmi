@@ -468,9 +468,7 @@ button:focus-visible {
 }
 
 .text-block {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  max-width: 96ch;
 }
 
 .text-block p {
@@ -489,6 +487,13 @@ button:focus-visible {
 
 .bio-milestone {
   font-size: 1.07em;
+}
+
+.rank-one {
+  color: var(--heading);
+  font-size: 1.18em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .entry-list {
@@ -525,6 +530,11 @@ button:focus-visible {
   color: var(--heading);
   font-size: 1rem;
   margin-bottom: 2px;
+}
+
+.stat-item-rank strong {
+  font-size: 1.22rem;
+  font-weight: 800;
 }
 
 .stat-item span {
