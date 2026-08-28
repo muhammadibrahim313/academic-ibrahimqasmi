@@ -103,7 +103,13 @@
     }
   };
 
-  const getLanguage = () => ["en", "es", "ko"].includes(root.dataset.language)
+  if (typeof PORTFOLIO_INTERFACE_TRANSLATIONS !== "undefined") {
+    Object.assign(translations, PORTFOLIO_INTERFACE_TRANSLATIONS);
+  }
+
+  const supportedLanguages = ["en", "es", "ko", "fr", "de", "pt", "it", "tr", "id", "ja"];
+
+  const getLanguage = () => supportedLanguages.includes(root.dataset.language)
     ? root.dataset.language
     : "en";
 
@@ -157,10 +163,8 @@
       ? {}
       : PORTFOLIO_PAGE_TRANSLATIONS;
     const path = window.location.pathname;
-    const allRules = [
-      ...(pageTranslations.es?.[path] || []),
-      ...(pageTranslations.ko?.[path] || [])
-    ];
+    const allRules = Object.values(pageTranslations)
+      .flatMap((language) => language?.[path] || []);
 
     allRules.forEach((rule) => {
       document.querySelectorAll(rule.selector).forEach((element) => {
@@ -315,7 +319,7 @@
   }
 
   const applyLanguage = (language, persist = false) => {
-    const selectedLanguage = ["en", "es", "ko"].includes(language)
+    const selectedLanguage = supportedLanguages.includes(language)
       ? language
       : "en";
     root.dataset.language = selectedLanguage;
