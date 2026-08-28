@@ -60,20 +60,48 @@
   --font-display: var(--font-ui);
 }
 
-/* Decorative choices are intentionally heading-only so long-form content stays readable. */
+[data-font="bricolage"] {
+  --font-ui: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  --font-display: var(--font-ui);
+}
+
+[data-font="fraunces"] {
+  --font-ui: "Fraunces", Georgia, serif;
+  --font-display: var(--font-ui);
+}
+
+[data-font="syne"] {
+  --font-ui: "Syne", "Segoe UI", sans-serif;
+  --font-display: var(--font-ui);
+}
+
+/* Script choices intentionally change the complete interface when selected. */
 [data-font="petit"] {
-  --font-ui: "Manrope", "Segoe UI", sans-serif;
+  --font-ui: "Petit Formal Script", "Cormorant Garamond", cursive;
   --font-display: "Petit Formal Script", "Cormorant Garamond", cursive;
 }
 
 [data-font="qwitcher"] {
-  --font-ui: "Manrope", "Segoe UI", sans-serif;
+  --font-ui: "Qwitcher Grypen", "Cormorant Garamond", cursive;
   --font-display: "Qwitcher Grypen", "Cormorant Garamond", cursive;
 }
 
 [data-font="stalemate"] {
-  --font-ui: "Manrope", "Segoe UI", sans-serif;
+  --font-ui: "Stalemate", "Cormorant Garamond", cursive;
   --font-display: "Stalemate", "Cormorant Garamond", cursive;
+}
+
+html[data-font="petit"] {
+  font-size: 16.5px;
+}
+
+html[data-font="qwitcher"],
+html[data-font="stalemate"] {
+  font-size: 18px;
+}
+
+[data-font="qwitcher"] body {
+  font-weight: 700;
 }
 
 [data-theme="dark"] {
@@ -302,7 +330,7 @@ button:focus-visible {
 }
 
 .preference-select.font-select select {
-  width: 142px;
+  width: 166px;
 }
 
 .visually-hidden {
@@ -1089,7 +1117,9 @@ button:focus-visible {
 
 /* These scripts are Latin display faces. Keep translated CJK headings native and clear. */
 html:is([lang="ko"], [lang="ja"]):is([data-font="petit"], [data-font="qwitcher"], [data-font="stalemate"]) {
+  --font-ui: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
 }
 
 .js-enabled [data-reveal] {
