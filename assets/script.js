@@ -33,6 +33,7 @@
       "competition.gold": "Gold Medal",
       "competition.silver": "Silver Medal",
       "competition.bronze": "Bronze Medal",
+      "competition.top": "Top",
       "competition.result": "View result on Kaggle",
       "competition.open": "Open competition",
       "competition.profile": "View full Kaggle competitions profile",
@@ -63,6 +64,7 @@
       "competition.gold": "Medalla de oro",
       "competition.silver": "Medalla de plata",
       "competition.bronze": "Medalla de bronce",
+      "competition.top": "Top",
       "competition.result": "Ver resultado en Kaggle",
       "competition.open": "Abrir competición",
       "competition.profile": "Ver el perfil completo de competiciones de Kaggle",
@@ -93,44 +95,15 @@
       "competition.gold": "금메달",
       "competition.silver": "은메달",
       "competition.bronze": "동메달",
+      "competition.top": "상위",
       "competition.result": "Kaggle 결과 보기",
       "competition.open": "대회 열기",
       "competition.profile": "전체 Kaggle 대회 프로필 보기",
       "footer": "저작권 2026 Muhammad Ibrahim Qasmi"
-    },
-    ur: {
-      "brand.subtitle": "تعلیمی پورٹ فولیو",
-      "control.group": "ڈسپلے کی ترجیحات",
-      "control.font": "فونٹ منتخب کریں",
-      "control.language": "زبان منتخب کریں",
-      "menu": "مینیو",
-      "download.cv": "سی وی ڈاؤن لوڈ",
-      "theme.dark": "ڈارک",
-      "theme.light": "لائٹ",
-      "theme.toDark": "ڈارک تھیم پر جائیں",
-      "theme.toLight": "لائٹ تھیم پر جائیں",
-      "nav.about": "تعارف",
-      "nav.education": "تعلیم",
-      "nav.experience": "تجربہ",
-      "nav.projects": "پروجیکٹس اور مہارتیں",
-      "nav.competitions": "مقابلے",
-      "nav.kaggle": "کیگل مقابلے",
-      "nav.coding": "کوڈنگ مقابلے",
-      "nav.hackathons": "ہیکاتھونز",
-      "nav.publications": "اشاعتیں",
-      "nav.community": "کمیونٹی اور رضاکارانہ خدمات",
-      "about.role": "اے آئی انجینئر | 3x کیگل گرینڈ ماسٹر | 7x ہیکاتھون فاتح",
-      "competition.gold": "طلائی تمغہ",
-      "competition.silver": "چاندی کا تمغہ",
-      "competition.bronze": "کانسی کا تمغہ",
-      "competition.result": "کیگل پر نتیجہ دیکھیں",
-      "competition.open": "مقابلہ کھولیں",
-      "competition.profile": "مکمل کیگل مقابلوں کا پروفائل دیکھیں",
-      "footer": "کاپی رائٹ 2026 Muhammad Ibrahim Qasmi"
     }
   };
 
-  const getLanguage = () => ["en", "es", "ko", "ur"].includes(root.dataset.language)
+  const getLanguage = () => ["en", "es", "ko"].includes(root.dataset.language)
     ? root.dataset.language
     : "en";
 
@@ -177,6 +150,47 @@
     return pageKeys[path];
   };
 
+  const originalBlocks = new WeakMap();
+
+  const applyPageTranslation = () => {
+    const pageTranslations = typeof PORTFOLIO_PAGE_TRANSLATIONS === "undefined"
+      ? {}
+      : PORTFOLIO_PAGE_TRANSLATIONS;
+    const path = window.location.pathname;
+    const allRules = [
+      ...(pageTranslations.es?.[path] || []),
+      ...(pageTranslations.ko?.[path] || [])
+    ];
+
+    allRules.forEach((rule) => {
+      document.querySelectorAll(rule.selector).forEach((element) => {
+        if (!originalBlocks.has(element)) {
+          originalBlocks.set(element, element.innerHTML);
+        }
+        element.innerHTML = originalBlocks.get(element);
+        element.lang = "en";
+        element.dir = "auto";
+      });
+    });
+
+    const currentRules = pageTranslations[getLanguage()]?.[path] || [];
+    currentRules.forEach((rule) => {
+      const values = rule.htmls || rule.texts || [];
+      document.querySelectorAll(rule.selector).forEach((element, index) => {
+        if (values[index] === undefined) {
+          return;
+        }
+        if (rule.htmls) {
+          element.innerHTML = values[index];
+        } else {
+          element.textContent = values[index];
+        }
+        element.lang = getLanguage();
+        element.dir = "auto";
+      });
+    });
+  };
+
   const translateInterface = () => {
     setText(document.querySelector(".sidebar-brand p"), translate("brand.subtitle"));
     setText(document.querySelector("[data-menu-toggle]"), translate("menu"));
@@ -187,7 +201,7 @@
     setText(document.querySelector(".page-footer"), translate("footer"));
 
     document.querySelectorAll(".competition-result").forEach((badge) => {
-      if (!badge.dataset.resultKey) {
+      if (!badge.dataset.resultKey && !badge.dataset.resultValue) {
         const result = badge.textContent.trim();
         badge.dataset.resultKey = result === "Gold Medal"
           ? "competition.gold"
@@ -196,9 +210,14 @@
             : result === "Bronze Medal"
               ? "competition.bronze"
               : "";
+        if (!badge.dataset.resultKey && result.startsWith("Top ")) {
+          badge.dataset.resultValue = result.slice(4);
+        }
       }
       if (badge.dataset.resultKey) {
         setText(badge, translate(badge.dataset.resultKey));
+      } else if (badge.dataset.resultValue) {
+        setText(badge, `${translate("competition.top")} ${badge.dataset.resultValue}`);
       }
     });
 
@@ -210,7 +229,9 @@
       }
       setText(action, translate(action.dataset.actionKey));
     });
-    setText(document.querySelector(".profile-link a"), translate("competition.profile"));
+    if (window.location.pathname === "/competitions") {
+      setText(document.querySelector(".profile-link a"), translate("competition.profile"));
+    }
 
     if (siteControls) {
       siteControls.setAttribute("aria-label", translate("control.group"));
@@ -221,6 +242,8 @@
     if (languageSelect) {
       languageSelect.setAttribute("aria-label", translate("control.language"));
     }
+
+    applyPageTranslation();
   };
 
   const updateThemeControl = () => {
@@ -292,7 +315,7 @@
   }
 
   const applyLanguage = (language, persist = false) => {
-    const selectedLanguage = ["en", "es", "ko", "ur"].includes(language)
+    const selectedLanguage = ["en", "es", "ko"].includes(language)
       ? language
       : "en";
     root.dataset.language = selectedLanguage;

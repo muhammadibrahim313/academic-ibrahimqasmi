@@ -19,7 +19,7 @@
   root.dataset.font = ["manrope", "inter", "source", "lora"].includes(savedFont)
     ? savedFont
     : "manrope";
-  root.dataset.language = ["en", "es", "ko", "ur"].includes(savedLanguage)
+  root.dataset.language = ["en", "es", "ko"].includes(savedLanguage)
     ? savedLanguage
     : "en";
   root.lang = root.dataset.language;
