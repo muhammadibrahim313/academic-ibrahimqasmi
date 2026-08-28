@@ -293,7 +293,7 @@
   }
 
   const applyFont = (font, persist = false) => {
-    const selectedFont = ["manrope", "inter", "source", "lora"].includes(font)
+    const selectedFont = ["manrope", "inter", "source", "lora", "petit", "qwitcher", "stalemate"].includes(font)
       ? font
       : "manrope";
     root.dataset.font = selectedFont;

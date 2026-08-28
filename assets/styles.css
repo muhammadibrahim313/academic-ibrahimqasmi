@@ -42,18 +42,38 @@
   --card-shadow: 0 10px 24px rgba(27, 38, 53, 0.06);
   --ease-fluid: cubic-bezier(0.2, 0.7, 0.2, 1);
   --font-ui: "Manrope", "Segoe UI", sans-serif;
+  --font-display: var(--font-ui);
 }
 
 [data-font="inter"] {
   --font-ui: "Inter", "Segoe UI", sans-serif;
+  --font-display: var(--font-ui);
 }
 
 [data-font="source"] {
   --font-ui: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-display: var(--font-ui);
 }
 
 [data-font="lora"] {
   --font-ui: "Lora", Georgia, serif;
+  --font-display: var(--font-ui);
+}
+
+/* Decorative choices are intentionally heading-only so long-form content stays readable. */
+[data-font="petit"] {
+  --font-ui: "Manrope", "Segoe UI", sans-serif;
+  --font-display: "Petit Formal Script", "Cormorant Garamond", cursive;
+}
+
+[data-font="qwitcher"] {
+  --font-ui: "Manrope", "Segoe UI", sans-serif;
+  --font-display: "Qwitcher Grypen", "Cormorant Garamond", cursive;
+}
+
+[data-font="stalemate"] {
+  --font-ui: "Manrope", "Segoe UI", sans-serif;
+  --font-display: "Stalemate", "Cormorant Garamond", cursive;
 }
 
 [data-theme="dark"] {
@@ -281,6 +301,10 @@ button:focus-visible {
   width: 72px;
 }
 
+.preference-select.font-select select {
+  width: 142px;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -323,7 +347,7 @@ button:focus-visible {
 .sidebar-brand a {
   display: inline-block;
   color: var(--heading);
-  font-family: var(--font-ui);
+  font-family: var(--font-display);
   font-size: 1.12rem;
   line-height: 1.2;
   font-weight: 600;
@@ -413,7 +437,7 @@ button:focus-visible {
 .page-title,
 .page-section h2 {
   margin: 0;
-  font-family: var(--font-ui);
+  font-family: var(--font-display);
   color: var(--heading);
   line-height: 1.1;
 }
@@ -501,6 +525,7 @@ button:focus-visible {
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.01em;
+  font-family: var(--font-display);
 }
 
 .location {
@@ -605,6 +630,7 @@ button:focus-visible {
 
 .bio-name {
   font-size: 1.04em;
+  font-family: var(--font-display);
 }
 
 .bio-milestone {
@@ -683,7 +709,7 @@ button:focus-visible {
   place-items: center;
   background: var(--surface);
   color: var(--accent-dark);
-  font-family: var(--font-ui);
+  font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -840,7 +866,7 @@ button:focus-visible {
 
 .competition-card h2 {
   margin: 0 0 8px;
-  font-family: var(--font-ui);
+  font-family: var(--font-display);
   font-size: 1rem;
   line-height: 1.4;
 }
@@ -994,6 +1020,76 @@ button:focus-visible {
   padding-top: 12px;
   color: var(--text-soft);
   font-size: 0.83rem;
+}
+
+[data-font="petit"] .page-title {
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  line-height: 1.22;
+  font-weight: 400;
+}
+
+[data-font="petit"] .sidebar-brand a,
+[data-font="petit"] .page-section h2,
+[data-font="petit"] .role-line,
+[data-font="petit"] .bio-name,
+[data-font="petit"] .entry-badge,
+[data-font="petit"] .competition-card h2 {
+  font-weight: 400;
+}
+
+[data-font="qwitcher"] .page-title,
+[data-font="stalemate"] .page-title {
+  font-size: clamp(2.65rem, 4.8vw, 3.35rem);
+  line-height: 0.98;
+}
+
+[data-font="qwitcher"] .sidebar-brand a,
+[data-font="qwitcher"] .page-title,
+[data-font="qwitcher"] .page-section h2,
+[data-font="qwitcher"] .role-line,
+[data-font="qwitcher"] .bio-name,
+[data-font="qwitcher"] .entry-badge,
+[data-font="qwitcher"] .competition-card h2 {
+  font-weight: 700;
+}
+
+[data-font="qwitcher"] .sidebar-brand a,
+[data-font="stalemate"] .sidebar-brand a {
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+[data-font="qwitcher"] .page-section h2,
+[data-font="stalemate"] .page-section h2 {
+  font-size: 1.75rem;
+  line-height: 1.08;
+}
+
+[data-font="qwitcher"] .role-line,
+[data-font="stalemate"] .role-line {
+  font-size: 1.45rem;
+  line-height: 1.08;
+}
+
+[data-font="qwitcher"] .bio-name,
+[data-font="stalemate"] .bio-name {
+  font-size: 1.38em;
+  line-height: 1;
+}
+
+[data-font="stalemate"] .sidebar-brand a,
+[data-font="stalemate"] .page-title,
+[data-font="stalemate"] .page-section h2,
+[data-font="stalemate"] .role-line,
+[data-font="stalemate"] .bio-name,
+[data-font="stalemate"] .entry-badge,
+[data-font="stalemate"] .competition-card h2 {
+  font-weight: 400;
+}
+
+/* These scripts are Latin display faces. Keep translated CJK headings native and clear. */
+html:is([lang="ko"], [lang="ja"]):is([data-font="petit"], [data-font="qwitcher"], [data-font="stalemate"]) {
+  --font-display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .js-enabled [data-reveal] {

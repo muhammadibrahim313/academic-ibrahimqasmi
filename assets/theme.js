@@ -16,7 +16,7 @@
   const theme = savedTheme === "dark" ? "dark" : "light";
 
   root.dataset.theme = theme;
-  root.dataset.font = ["manrope", "inter", "source", "lora"].includes(savedFont)
+  root.dataset.font = ["manrope", "inter", "source", "lora", "petit", "qwitcher", "stalemate"].includes(savedFont)
     ? savedFont
     : "manrope";
   root.dataset.language = ["en", "es", "ko", "fr", "de", "pt", "it", "tr", "id", "ja"].includes(savedLanguage)
